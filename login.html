@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyCanteen - Login WhatsApp</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="js/api-config.js" type="module"></script>
+    <script src="js/utils.js" type="module"></script>
+  </head>
+  <body>
+    <header class="header fixed">
+      <div class="container">
+        <h2 class="canteen-header-title">Masuk MyCanteen</h2>
+      </div>
+    </header>
+
+    <main class="main-content container">
+      <section class="login-section">
+        <div class="login-card">
+          <h2>Masuk dengan WhatsApp</h2>
+          <form id="request-otp-form" class="login-step active">
+            <div class="form-group">
+              <label for="phone-number">Nomor WhatsApp</label>
+              <input
+                type="tel"
+                id="phone-number"
+                placeholder="Contoh: 6281234567890 (tanpa +)"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="role">Masuk Sebagai:</label>
+              <select id="role" required>
+                <option value="customer">Pelanggan</option>
+                <option value="courier">Kurir</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-primary login-btn">
+              Kirim Kode OTP
+            </button>
+            <p class="login-error-message" id="request-otp-error-message"></p>
+          </form>
+
+          <form id="verify-otp-form" class="login-step">
+            <p>
+              Kode OTP telah dikirim ke
+              <strong id="display-phone-number"></strong>.
+            </p>
+            <div class="form-group">
+              <label for="otp-code">Kode OTP</label>
+              <input
+                type="text"
+                id="otp-code"
+                placeholder="Masukkan 6 digit kode OTP"
+                required
+                maxlength="6"
+              />
+            </div>
+            <button type="submit" class="btn-primary login-btn">
+              Verifikasi & Masuk
+            </button>
+            <p class="login-error-message" id="verify-otp-error-message"></p>
+            <p class="resend-otp-link">
+              Tidak menerima kode?
+              <a href="#" id="resend-otp-btn">Kirim Ulang OTP</a>
+            </p>
+          </form>
+
+          <p class="register-link">
+            Belum punya akun? <a href="register.html">Daftar di sini</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/login.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
+  </body>
+</html>

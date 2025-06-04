@@ -1,0 +1,1799 @@
+/* style.css */
+
+/* Umum */
+:root {
+  --primary-color: #007bff; /* Biru */
+  --secondary-color: #6c757d; /* Abu-abu gelap */
+  --accent-color: #ffc107; /* Kuning */
+  --light-bg: #f8f9fa; /* Latar belakang terang */
+  --dark-bg: #343a40; /* Latar belakang gelap */
+  --text-color: #212529; /* Teks gelap */
+  --light-text: #6c757d; /* Teks abu-abu */
+  --border-color: #dee2e6; /* Warna border */
+  --success-color: #28a745; /* Hijau (untuk status buka/berhasil) */
+  --danger-color: #dc3545; /* Merah (untuk status tutup/gagal) */
+  --info-color: #17a2b8; /* Cyan untuk status info seperti on_delivery */
+  --warning-color: #ff7f00; /* Oranye untuk failed_delivery */
+  --padding-md: 15px;
+  --padding-lg: 20px;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--padding-md);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* --- Header --- */
+.header {
+  background-color: white;
+  padding: 10px 0; /* Header lebih ringkas */
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.3rem; /* Ukuran font logo lebih kecil */
+  font-weight: bold;
+  color: var(--primary-color);
+  flex-shrink: 0;
+  margin-right: 15px;
+}
+
+.search-and-icons-wrapper {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 3px 12px; /* Padding search bar lebih kecil */
+  flex-grow: 1;
+  margin: 0;
+  max-width: 250px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  padding: 3px;
+  font-size: 0.8rem; /* Ukuran font input search bar lebih kecil */
+}
+
+.search-bar .fas.fa-search {
+  color: var(--light-text);
+  margin-left: 8px;
+  font-size: 0.9rem; /* Ukuran ikon search lebih kecil */
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 0;
+}
+
+.icon-link {
+  position: relative;
+  color: var(--text-color); /* Warna default untuk teks di link */
+  font-size: 1.1rem; /* Ukuran ikon di header lebih kecil */
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* Mengubah warna ikon keranjang di header menjadi putih */
+.header-icons .icon-link .fas.fa-shopping-cart {
+  color: white; /* Ikon keranjang putih */
+}
+
+/* Warna ikon keranjang di header saat hover */
+.header-icons .icon-link:hover .fas.fa-shopping-cart {
+  color: #e0e0e0; /* Putih sedikit gelap saat hover */
+}
+
+/* Warna ikon umum di header saat hover (selain keranjang) */
+.icon-link:hover {
+  color: var(
+    --primary-color
+  ); /* Kembali ke warna primary saat hover jika bukan ikon keranjang */
+  text-decoration: none;
+}
+
+.cart-item-count {
+  background-color: var(--danger-color);
+  color: white;
+  font-size: 0.65rem; /* Ukuran font badge lebih kecil */
+  border-radius: 50%;
+  padding: 2px 5px; /* Padding badge lebih kecil */
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 17px; /* Ukuran minimum badge lebih kecil */
+  height: 17px; /* Tinggi badge lebih kecil */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  display: none;
+}
+
+/* --- Main Content --- */
+.main-content {
+  padding-top: 70px; /* Memberi ruang di bawah header yang sticky/fixed */
+  padding-bottom: 80px;
+}
+
+.promo-banner {
+  margin-bottom: var(--padding-lg);
+  text-align: center;
+}
+
+.promo-banner img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  margin-top: var(--padding-lg);
+  margin-bottom: var(--padding-md);
+}
+
+.section-title h2 {
+  font-size: 1.3rem;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+/* --- Kantin Populer --- */
+.canteen-list {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: var(--padding-md);
+  padding-bottom: var(--padding-md);
+  scroll-snap-type: x mandatory;
+}
+
+.canteen-list::-webkit-scrollbar {
+  height: 8px;
+}
+
+.canteen-list::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 10px;
+}
+
+.canteen-list::-webkit-scrollbar-track {
+  background: var(--light-bg);
+}
+
+.canteen-card {
+  flex: 0 0 220px;
+  width: 220px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--text-color);
+  scroll-snap-align: start;
+}
+
+.canteen-image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 60%;
+  overflow: hidden;
+}
+
+.canteen-image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.discount-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+.canteen-info {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.distance-time {
+  font-size: 0.8rem;
+  color: var(--light-text);
+  margin-bottom: 5px;
+}
+
+.canteen-card h3 {
+  font-size: 1rem;
+  margin: 0 0 5px 0;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rating-info {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+}
+
+.rating-info .fas.fa-star {
+  color: var(--accent-color);
+  margin-right: 4px;
+}
+
+.rating-count {
+  color: var(--light-text);
+  margin-left: 5px;
+}
+
+/* --- Menu Recommendations --- */
+.menu-recommendations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--padding-md);
+}
+
+.menu-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 10px;
+}
+
+.menu-card h4 {
+  font-size: 0.95rem;
+  margin: 0 10px 5px;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.menu-card .canteen-name {
+  font-size: 0.8rem;
+  color: var(--light-text);
+  margin: 0 10px 8px;
+}
+
+.menu-card .price {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.menu-card .btn-add-to-cart {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  align-self: center;
+  margin-top: auto;
+}
+
+.menu-card .btn-add-to-cart:hover {
+  background-color: #0056b3;
+}
+
+/* Status Badges */
+.status {
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.status.open {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.status.closed {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+/* --- Footer --- */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--light-text);
+  font-size: 0.8rem;
+  text-decoration: none;
+  flex: 1;
+  text-align: center;
+}
+
+.nav-item i {
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+.nav-item.active {
+  color: var(--primary-color);
+}
+
+.nav-item:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* --- Canteen Detail Page --- */
+.canteen-detail-page {
+  padding-bottom: 20px;
+}
+
+.canteen-banner {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.canteen-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.canteen-info-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  color: white;
+  padding: var(--padding-md);
+}
+
+.canteen-info-overlay h1 {
+  margin: 0 0 5px 0;
+  font-size: 1.5rem;
+}
+
+.canteen-meta {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.canteen-meta .rating {
+  margin-right: var(--padding-md);
+}
+
+.canteen-meta .fas.fa-star {
+  color: var(--accent-color);
+  margin-right: 5px;
+}
+
+.canteen-info-overlay p {
+  font-size: 0.85rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.canteen-menu-section {
+  margin-top: var(--padding-lg);
+}
+
+.menu-categories {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: var(--padding-md);
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.menu-categories::-webkit-scrollbar {
+  height: 4px;
+}
+
+.menu-categories::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 10px;
+}
+
+.menu-categories::-webkit-scrollbar-track {
+  background: var(--light-bg);
+}
+
+.category-item {
+  flex-shrink: 0;
+  padding: 8px 15px;
+  border-radius: 20px;
+  background-color: #e9ecef;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  scroll-snap-align: start;
+}
+
+.category-item.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.category-item:hover {
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+}
+
+.menu-list h3 {
+  font-size: 1.2rem;
+  margin-top: var(--padding-lg);
+  margin-bottom: var(--padding-md);
+  padding-top: 60px;
+  margin-top: -60px;
+}
+
+.menu-item-card {
+  display: flex;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: var(--padding-md);
+  overflow: hidden;
+}
+
+.menu-item-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.menu-item-details {
+  padding: 10px var(--padding-md);
+  flex-grow: 1;
+}
+
+.menu-item-details h4 {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.menu-item-details p {
+  font-size: 0.85rem;
+  color: var(--light-text);
+  margin-bottom: 8px;
+}
+
+.menu-item-details .price {
+  font-weight: bold;
+  color: var(--primary-color);
+  font-size: 0.95rem;
+}
+
+.menu-item-card .btn-add-to-cart {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  align-self: flex-end;
+  margin: 10px;
+  flex-shrink: 0;
+}
+
+.menu-item-card .btn-add-to-cart:hover {
+  background-color: #0056b3;
+}
+
+/* Back Button */
+.header.fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.header.fixed .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px; /* Disesuaikan untuk fixed header */
+  padding-bottom: 8px; /* Disesuaikan untuk fixed header */
+}
+
+.back-button {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-right: var(--padding-md);
+}
+
+.canteen-header-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  flex-grow: 1;
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* --- Cart Page --- */
+.cart-page {
+  padding-top: 70px; /* Menyesuaikan padding-top untuk halaman keranjang */
+}
+
+.empty-cart-message {
+  text-align: center;
+  color: var(--light-text);
+  padding: 40px 0;
+  font-style: italic;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: var(--padding-md);
+  overflow: hidden;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border-color);
+}
+
+.cart-item .item-details {
+  padding: 10px var(--padding-md);
+  flex-grow: 1;
+}
+
+.cart-item .item-details h4 {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.cart-item .item-details .canteen-name {
+  font-size: 0.8rem;
+  color: var(--light-text);
+  margin-bottom: 8px;
+}
+
+.cart-item .item-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.cart-item .quantity-btn {
+  background-color: #e9ecef;
+  color: var(--text-color);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.cart-item .quantity-btn:hover {
+  background-color: var(--border-color);
+}
+
+.cart-item .quantity {
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.cart-item .item-price {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-left: auto;
+}
+
+.remove-item-btn {
+  background: none;
+  border: none;
+  color: var(--danger-color);
+  font-size: 1.1rem;
+  margin-left: 15px;
+  padding: 0;
+}
+
+.remove-item-btn:hover {
+  color: #a71d2a;
+}
+
+.cart-summary {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: var(--padding-md);
+  margin-top: var(--padding-lg);
+}
+
+.cart-summary h3 {
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: var(--padding-md);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.summary-row.total {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  padding-top: 10px;
+  border-top: 1px dashed var(--border-color);
+  margin-top: 15px;
+}
+
+.payment-method {
+  margin-top: var(--padding-lg);
+}
+
+.payment-method h3 {
+  font-size: 1.1rem;
+  margin-bottom: var(--padding-md);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.qris-option {
+  display: flex;
+  align-items: center;
+  background-color: #f1f8e9;
+  border: 1px solid #c8e6c9;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: var(--padding-md);
+}
+
+.qris-logo {
+  height: 25px;
+  margin-right: 10px;
+}
+
+.qris-option span {
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.qris-option .selected {
+  color: var(--success-color);
+  font-size: 1.3rem;
+}
+
+.btn-primary.place-order-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  margin-top: var(--padding-md);
+}
+
+/* --- Floating Cart Button --- */
+.cart-floating-button {
+  position: fixed;
+  bottom: 80px;
+  right: var(--padding-md);
+  background-color: var(--primary-color);
+  color: white; /* Warna teks dan ikon di floating button (sudah putih) */
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 900;
+  text-decoration: none;
+}
+
+.cart-floating-button:hover {
+  background-color: #0056b3;
+  text-decoration: none;
+}
+
+.cart-floating-button .cart-item-count {
+  top: -5px;
+  right: -5px;
+  font-size: 0.8rem;
+  padding: 2px 5px;
+  min-width: 20px;
+  height: 20px;
+}
+
+/* Konfirmasi warna ikon di dalam floating button (biasanya sudah putih karena parentnya color: white) */
+.cart-floating-button .fas.fa-shopping-cart {
+  color: white; /* Pastikan ini diset ke putih */
+}
+
+/* --- Modal --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: var(--padding-lg);
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: var(--text-color);
+  font-size: 1.3rem;
+  margin-bottom: var(--padding-md);
+}
+
+.qris-code-area {
+  background-color: var(--light-bg);
+  padding: var(--padding-md);
+  border-radius: 8px;
+  border: 1px dashed var(--border-color);
+  margin-bottom: var(--padding-md);
+}
+
+.qris-code {
+  max-width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto 15px auto;
+}
+
+.qris-code-area p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: var(--light-text);
+}
+
+.qris-code-area strong {
+  color: var(--primary-color);
+}
+
+.qris-code-area .timer {
+  font-weight: bold;
+  color: var(--danger-color);
+  font-size: 1rem;
+  margin-top: 15px;
+}
+
+.btn-primary#payment-done-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+  .header .container {
+    justify-content: space-between;
+    padding: 8px 10px; /* Mengurangi padding di mobile */
+  }
+
+  .logo {
+    font-size: 1.1rem; /* Mengurangi ukuran logo di mobile */
+    margin-right: 5px;
+  }
+
+  .search-and-icons-wrapper {
+    flex-grow: 1;
+    justify-content: flex-end;
+    gap: 8px; /* Mengurangi gap di mobile */
+  }
+
+  .search-bar {
+    max-width: 150px; /* Mengurangi max-width search bar di mobile */
+    padding: 2px 6px; /* Mengurangi padding search bar di mobile */
+    min-width: 80px;
+  }
+
+  .search-bar input {
+    font-size: 0.7rem; /* Mengurangi font input di mobile */
+  }
+
+  .search-bar .fas.fa-search {
+    margin-left: 3px;
+    font-size: 0.8em; /* Mengurangi ukuran ikon search di mobile */
+  }
+
+  .icon-link {
+    font-size: 0.9rem; /* Mengurangi ukuran ikon di mobile */
+    margin-left: 8px; /* Mengurangi margin di mobile */
+  }
+
+  .cart-item-count {
+    font-size: 0.55rem; /* Mengurangi ukuran badge di mobile */
+    min-width: 15px;
+    height: 15px;
+    top: -5px;
+    right: -5px;
+  }
+
+  .main-content {
+    padding-left: var(--padding-md);
+    padding-right: var(--padding-md);
+  }
+
+  .canteen-list {
+    padding-left: var(--padding-md);
+    padding-right: var(--padding-md);
+    margin-left: calc(-1 * var(--padding-md));
+    margin-right: calc(-1 * var(--padding-md));
+  }
+
+  .canteen-card {
+    flex: 0 0 180px;
+    width: 180px;
+  }
+
+  .menu-recommendations {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .menu-card img {
+    height: 100px;
+  }
+
+  .menu-item-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .menu-item-card img {
+    width: 100%;
+    height: 150px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .menu-item-details {
+    padding: 10px;
+  }
+
+  .menu-item-card .btn-add-to-cart {
+    align-self: center;
+    margin: 10px auto;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item img {
+    width: 100%;
+    height: 150px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .cart-item .item-details {
+    width: 100%;
+  }
+
+  .cart-item .item-actions {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-color);
+  }
+
+  .cart-item .item-price {
+    margin-left: 0;
+  }
+
+  .remove-item-btn {
+    margin-left: auto;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1rem;
+  }
+
+  .search-and-icons-wrapper {
+    gap: 5px;
+  }
+
+  .search-bar {
+    max-width: 100px; /* Semakin kecil untuk layar sangat sempit */
+    padding: 1px 5px;
+  }
+
+  .search-bar input {
+    font-size: 0.75rem;
+  }
+
+  .icon-link {
+    font-size: 0.8rem;
+    margin-left: 4px;
+  }
+
+  .cart-item-count {
+    font-size: 0.5rem;
+    min-width: 13px;
+    height: 13px;
+    top: -4px;
+    right: -4px;
+  }
+
+  .promo-banner {
+    margin-bottom: var(--padding-md);
+  }
+
+  .section-title h2 {
+    font-size: 1.2rem;
+  }
+
+  .canteen-card {
+    flex: 0 0 160px;
+    width: 160px;
+  }
+
+  .canteen-card h3 {
+    font-size: 0.9rem;
+  }
+
+  .rating-info {
+    font-size: 0.8rem;
+  }
+
+  .menu-recommendations {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .menu-card h4 {
+    font-size: 0.85rem;
+  }
+
+  .menu-card .canteen-name {
+    font-size: 0.75rem;
+  }
+
+  .menu-card .price {
+    font-size: 0.9rem;
+  }
+
+  .menu-card .btn-add-to-cart {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  .menu-item-details h4 {
+    font-size: 0.9rem;
+  }
+
+  .menu-item-details p {
+    font-size: 0.8rem;
+  }
+
+  .menu-item-details .price {
+    font-size: 0.85rem;
+  }
+
+  .menu-item-card .btn-add-to-cart {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .cart-summary h3,
+  .payment-method h3 {
+    font-size: 1rem;
+  }
+
+  .summary-row {
+    font-size: 0.9rem;
+  }
+
+  .summary-row.total {
+    font-size: 1rem;
+  }
+
+  .btn-primary.place-order-btn {
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
+
+/* --- Tambahan Styles Lainnya --- */
+.customer-info-form {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.customer-info-summary {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.customer-info-summary p {
+  margin: 8px 0;
+}
+
+/* General improvements */
+.empty-list-message,
+.empty-cart-message {
+  text-align: center;
+  color: var(--light-text);
+  padding: 20px 0;
+  font-style: italic;
+}
+
+/* For improved semantic grouping on homepage */
+.section-group {
+  margin-top: var(--padding-lg);
+  margin-bottom: var(--padding-md);
+}
+
+.section-group h2 {
+  font-size: 1.3rem;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+/* --- Notifikasi Kurir --- */
+.header .refresh-button {
+  /* Style untuk tombol refresh di header kurir */
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  padding: 0 5px;
+  margin-left: 10px; /* Jarak dari ikon lain */
+}
+
+.header .refresh-button:hover {
+  color: #0056b3;
+}
+
+.notifications-section {
+  padding-top: var(--padding-lg);
+  padding-bottom: var(--padding-lg);
+}
+
+.notifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-md);
+}
+
+.notification-card {
+  background-color: white;
+  border-radius: 10px; /* Sedikit lebih membulat */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Bayangan lebih kuat */
+  padding: var(--padding-md);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in-out; /* Efek hover */
+}
+
+.notification-card:hover {
+  transform: translateY(-3px); /* Sedikit naik saat dihover */
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.notification-header h3 {
+  margin: 0;
+  font-size: 1.2rem; /* Ukuran judul lebih besar */
+  color: var(--primary-color); /* Warna judul primary */
+  font-weight: 600; /* Sedikit lebih tebal */
+}
+
+.order-status {
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 4px 10px; /* Padding lebih besar */
+  border-radius: 20px; /* Lebih bulat */
+  text-transform: uppercase; /* Huruf kapital */
+  white-space: nowrap;
+}
+
+/* Warna status (sesuaikan dengan enum di DB) */
+.order-status.pending {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
+.order-status.completed {
+  background-color: var(--success-color);
+  color: white;
+}
+.order-status.assigned_to_courier {
+  background-color: var(--primary-color);
+  color: white;
+}
+.order-status.on_delivery {
+  background-color: var(--info-color);
+  color: white;
+} /* Menggunakan --info-color */
+.order-status.delivered {
+  background-color: var(--success-color);
+  color: white;
+} /*delivered bisa sama dengan success */
+.order-status.rejected_by_courier {
+  background-color: var(--danger-color);
+  color: white;
+}
+.order-status.failed_delivery {
+  background-color: var(--warning-color);
+  color: white;
+} /* Menggunakan --warning-color */
+.order-status.cancelled {
+  background-color: var(--secondary-color);
+  color: white;
+} /* Menggunakan --secondary-color */
+
+.notification-body {
+  margin-bottom: 10px;
+}
+
+.notification-body p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.notification-body p strong {
+  color: var(--text-color);
+}
+
+.notification-body h4 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: var(--primary-color);
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 5px;
+}
+
+.notification-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-body li {
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+  color: var(--light-text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0;
+}
+
+.notification-body li::before {
+  content: "•";
+  color: var(--primary-color);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.notification-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed var(--border-color);
+}
+
+.notification-actions .action-button {
+  flex-grow: 1;
+  padding: 10px 15px;
+  font-size: 0.95rem;
+  border-radius: 5px;
+}
+
+.info-message {
+  font-size: 0.9rem;
+  color: var(--light-text);
+  font-style: italic;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+}
+
+.empty-list-message {
+  text-align: center;
+  color: var(--light-text);
+  padding: 40px 0;
+  font-style: italic;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.empty-list-message .fa-spinner,
+.empty-list-message .fas {
+  /* Menargetkan ikon spinner dan ikon lainnya di empty-list-message */
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* Responsiveness untuk keseluruhan */
+@media (max-width: 768px) {
+  .header .container {
+    padding: 8px 10px;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+    margin-right: 5px;
+  }
+
+  .search-and-icons-wrapper {
+    gap: 8px;
+  }
+
+  .search-bar {
+    max-width: 150px;
+    padding: 2px 6px;
+    min-width: 80px;
+  }
+
+  .search-bar input {
+    font-size: 0.7rem;
+  }
+
+  .search-bar .fas.fa-search {
+    margin-left: 3px;
+    font-size: 0.8em;
+  }
+
+  .icon-link {
+    font-size: 0.9rem;
+    margin-left: 8px;
+  }
+
+  .cart-item-count {
+    font-size: 0.55rem;
+    min-width: 15px;
+    height: 15px;
+    top: -5px;
+    right: -5px;
+  }
+
+  .main-content {
+    padding-left: var(--padding-md);
+    padding-right: var(--padding-md);
+  }
+
+  .canteen-list {
+    padding-left: var(--padding-md);
+    padding-right: var(--padding-md);
+    margin-left: calc(-1 * var(--padding-md));
+    margin-right: calc(-1 * var(--padding-md));
+  }
+
+  .canteen-card {
+    flex: 0 0 180px;
+    width: 180px;
+  }
+
+  .menu-recommendations {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .menu-card img {
+    height: 100px;
+  }
+
+  .menu-item-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .menu-item-card img {
+    width: 100%;
+    height: 150px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .menu-item-details {
+    padding: 10px;
+  }
+
+  .menu-item-card .btn-add-to-cart {
+    align-self: center;
+    margin: 10px auto;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item img {
+    width: 100%;
+    height: 150px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .cart-item .item-details {
+    width: 100%;
+  }
+
+  .cart-item .item-actions {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-color);
+  }
+
+  .cart-item .item-price {
+    margin-left: 0;
+  }
+
+  .remove-item-btn {
+    margin-left: auto;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+
+  /* Responsiveness khusus Notifikasi Kurir */
+  .notification-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1rem;
+  }
+
+  .search-and-icons-wrapper {
+    gap: 5px;
+  }
+
+  .search-bar {
+    max-width: 100px;
+    padding: 1px 5px;
+  }
+
+  .search-bar input {
+    font-size: 0.75rem;
+  }
+
+  .icon-link {
+    font-size: 0.8rem;
+    margin-left: 4px;
+  }
+
+  .cart-item-count {
+    font-size: 0.5rem;
+    min-width: 13px;
+    height: 13px;
+    top: -4px;
+    right: -4px;
+  }
+
+  .promo-banner {
+    margin-bottom: var(--padding-md);
+  }
+
+  .section-title h2 {
+    font-size: 1.2rem;
+  }
+
+  .canteen-card {
+    flex: 0 0 160px;
+    width: 160px;
+  }
+
+  .canteen-card h3 {
+    font-size: 0.9rem;
+  }
+
+  .rating-info {
+    font-size: 0.8rem;
+  }
+
+  .menu-recommendations {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .menu-card h4 {
+    font-size: 0.85rem;
+  }
+
+  .menu-card .canteen-name {
+    font-size: 0.75rem;
+  }
+
+  .menu-card .price {
+    font-size: 0.9rem;
+  }
+
+  .menu-card .btn-add-to-cart {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  .menu-item-details h4 {
+    font-size: 0.9rem;
+  }
+
+  .menu-item-details p {
+    font-size: 0.8rem;
+  }
+
+  .menu-item-details .price {
+    font-size: 0.85rem;
+  }
+
+  .menu-item-card .btn-add-to-cart {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .cart-summary h3,
+  .payment-method h3 {
+    font-size: 1rem;
+  }
+
+  .summary-row {
+    font-size: 0.9rem;
+  }
+
+  .summary-row.total {
+    font-size: 1rem;
+  }
+
+  .btn-primary.place-order-btn {
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
+
+/* --- Order Tracking Page --- */
+.order-tracking-section {
+  padding-top: var(--padding-lg);
+  padding-bottom: var(--padding-lg);
+}
+
+.order-tracking-section .notification-card {
+  margin-bottom: var(--padding-md);
+}
+
+.order-tracking-section .status-message {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: var(--light-bg);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.order-tracking-section .status-message i {
+  font-size: 1.3em;
+}
+
+.order-tracking-details {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: var(--padding-md);
+  margin-top: var(--padding-lg);
+}
+
+.order-tracking-details h4 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.tracking-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.tracking-timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--border-color);
+}
+
+.timeline-step {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  position: absolute;
+  left: -14px;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.timeline-step.completed .timeline-dot {
+  background-color: var(--success-color);
+}
+
+.timeline-label {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.timeline-step.completed .timeline-label {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* --- Login/Register Page Styles --- */
+/* ... (CSS yang sudah ada untuk .login-section, .login-card, .form-group, dll.) ... */
+
+/* Tambahan untuk langkah-langkah */
+.login-step,
+.register-step {
+  display: none; /* Sembunyikan semua langkah secara default */
+}
+
+.login-step.active,
+.register-step.active {
+  display: block; /* Tampilkan langkah yang aktif */
+}
+
+.login-card p.resend-otp-link,
+.register-card p.resend-otp-link {
+  margin-top: 15px;
+  font-size: 0.85rem;
+}
+
+.login-card p.resend-otp-link a,
+.register-card p.resend-otp-link a {
+  font-weight: bold;
+  color: var(--primary-color);
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyCanteen - Nama Kantin</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="js/api-config.js" type="module"></script>
+    <script src="js/utils.js" type="module"></script>
+    <script src="js/dom-handler.js" type="module"></script>
+    <script src="js/cart-handler.js" type="module"></script>
+    <script src="js/canteen-detail.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
+  </head>
+  <body>
+    <header class="header fixed">
+      <div class="container">
+        <a
+          href="index.html"
+          class="back-button"
+          aria-label="Kembali ke Beranda"
+        >
+          <i class="fas fa-arrow-left" aria-hidden="true"></i>
+        </a>
+        <div class="canteen-header-title" id="canteen-name-header">
+          Memuat...
+        </div>
+        <div class="header-icons">
+          <a href="cart.html" class="icon-link" aria-label="Keranjang belanja">
+            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+            <span class="cart-item-count" id="header-cart-item-count">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content canteen-detail-page">
+      <section class="canteen-banner">
+        <img
+          src="images/canteen1.jpg"
+          alt="Kantin Banner"
+          id="canteen-banner-img"
+        />
+        <div class="canteen-info-overlay">
+          <h1 id="canteen-title">Memuat Kantin...</h1>
+          <div class="canteen-meta">
+            <span class="rating">
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <span id="canteen-rating"></span>
+            </span>
+            <span class="status" id="canteen-status"></span>
+          </div>
+          <p id="canteen-description"></p>
+        </div>
+      </section>
+
+      <section class="canteen-menu-section container">
+        <div class="menu-categories" id="menu-categories-nav"></div>
+        <div class="menu-list" id="canteen-menu-list"></div>
+      </section>
+    </main>
+
+    <div class="cart-floating-button">
+      <a href="cart.html" aria-label="Lihat Keranjang">
+        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+        <span class="cart-item-count" id="cart-item-count">0</span>
+      </a>
+    </div>
+  </body>
+</html>

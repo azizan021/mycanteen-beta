@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyCanteen - Keranjang Belanja</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="js/api-config.js" type="module"></script>
+    <script src="js/utils.js" type="module"></script>
+    <script src="js/dom-handler.js" type="module"></script>
+    <script src="js/cart-handler.js" type="module"></script>
+    <script src="js/cart-page.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
+  </head>
+  <body>
+    <header class="header fixed">
+      <div class="container">
+        <a
+          href="javascript:history.back()"
+          class="back-button"
+          aria-label="Kembali"
+        >
+          <i class="fas fa-arrow-left" aria-hidden="true"></i>
+        </a>
+        <h2>Keranjang Belanja</h2>
+        <div></div>
+      </div>
+    </header>
+
+    <main class="main-content cart-page">
+      <section class="cart-items-section container">
+        <div id="cart-items-list"></div>
+
+        <div class="cart-summary">
+          <h3>Ringkasan Pembayaran</h3>
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="subtotal-price">Rp 0</span>
+          </div>
+          <div class="summary-row">
+            <span>Biaya Layanan</span>
+            <span>Rp 2.000</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total</span>
+            <span id="total-price">Rp 2.000</span>
+          </div>
+
+          <div class="payment-method">
+            <h3>Metode Pembayaran</h3>
+            <div class="qris-option">
+              <img
+                src="images/qris_logo.png"
+                alt="QRIS Logo"
+                class="qris-logo"
+              />
+              <span>QRIS (Satu-satunya metode pembayaran)</span>
+              <i class="fas fa-check-circle selected" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <div class="customer-info-form">
+            <h3>Informasi Penerima</h3>
+
+            <div class="form-group">
+              <label for="customer-name">Nama Penerima*</label>
+              <input
+                type="text"
+                id="customer-name"
+                placeholder="Contoh: Budi Santoso"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="delivery-address">Alamat Pengiriman*</label>
+              <input
+                type="text"
+                id="delivery-address"
+                placeholder="Contoh: Gedung A, Ruang A.210"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="order-notes">Catatan (Opsional)</label>
+              <textarea
+                id="order-notes"
+                placeholder="Contoh: Jangan pakai sambal, atau minta alat makan"
+              ></textarea>
+            </div>
+          </div>
+
+          <button class="btn-primary place-order-btn" id="place-order-btn">
+            Pesan Sekarang
+          </button>
+        </div>
+      </section>
+
+      <div id="qris-payment-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button" aria-label="Tutup">&times;</span>
+          <h2>Pindai QRIS untuk Pembayaran</h2>
+          <div class="qris-code-area">
+            <img
+              src="images/qris_example.png"
+              alt="QRIS Code"
+              class="qris-code"
+            />
+            <p>Jumlah: <strong id="qris-amount">Rp 0</strong></p>
+            <p>
+              Buka aplikasi pembayaran Anda (Dana, OVO, GoPay, dll.), pindai
+              kode QRIS di atas.
+            </p>
+            <p class="timer">Sisa Waktu: <span id="qris-timer">05:00</span></p>
+          </div>
+          <div class="customer-info-summary" style="display: none">
+            <h3>Informasi Penerima</h3>
+            <p>
+              <strong>Nama:</strong>
+              <span id="summary-customer-name"></span>
+            </p>
+            <p>
+              <strong>Alamat:</strong>
+              <span id="summary-delivery-address"></span>
+            </p>
+            <p>
+              <strong>Catatan:</strong>
+              <span id="summary-order-notes"></span>
+            </p>
+          </div>
+          <button class="btn-primary" id="payment-done-btn">
+            Saya Sudah Bayar
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

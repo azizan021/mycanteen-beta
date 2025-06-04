@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyCanteen - Notifikasi Kurir</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="js/api-config.js" type="module"></script>
+    <script src="js/utils.js" type="module"></script>
+  </head>
+  <body>
+    <header class="header fixed">
+      <div class="container">
+        <a
+          href="index.html"
+          class="back-button"
+          aria-label="Kembali ke Beranda"
+        >
+          <i class="fas fa-home" aria-hidden="true"></i>
+        </a>
+        <h2 class="canteen-header-title">Notifikasi Pesanan Kurir</h2>
+        <div class="header-icons">
+          <button
+            class="icon-link refresh-button"
+            aria-label="Refresh Notifikasi"
+          >
+            <i class="fas fa-sync-alt" aria-hidden="true"></i>
+          </button>
+          <a href="#" class="icon-link" aria-label="Profil Kurir">
+            <i class="fas fa-user-circle" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content container">
+      <section class="notifications-section">
+        <div class="notifications-list" id="notifications-list">
+          <p class="empty-list-message" id="loading-message">
+            <i class="fas fa-spinner fa-spin"></i> Memuat notifikasi...
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/courier-notifications.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
+  </body>
+</html>
